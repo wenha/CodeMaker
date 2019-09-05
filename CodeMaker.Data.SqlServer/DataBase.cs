@@ -6,6 +6,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CodeMaker.Common;
+using CodeMaker.Model;
 using CodeMaker.Model.Enum;
 
 namespace CodeMaker.Data.SqlServer
@@ -20,7 +22,7 @@ namespace CodeMaker.Data.SqlServer
         /// <returns></returns>
         public bool TestDatabaseConnection(string serverID, out string errMessage)
         {
-            SqlConnection conn = new SqlConnection(Common.Config.GetConnectionString(serverID));
+            SqlConnection conn = new SqlConnection(Config.GetConnectionString(serverID));
             try
             {
                 conn.Open();
@@ -37,6 +39,7 @@ namespace CodeMaker.Data.SqlServer
                 conn.Dispose();
             }
         }
+
         /// <summary>
         /// 得到服务器所有数据库
         /// </summary>
@@ -45,7 +48,7 @@ namespace CodeMaker.Data.SqlServer
         public List<string> GetDatabaseList(string serverID)
         {
             List<string> dbList = new List<string>();
-            string connString = Common.Config.GetConnectionString(serverID);
+            string connString = Config.GetConnectionString(serverID);
             using (SqlConnection conn = new SqlConnection(connString))
             {
                 conn.Open();
@@ -69,10 +72,10 @@ namespace CodeMaker.Data.SqlServer
         /// <param name="serverID"></param>
         /// <param name="dbName"></param>
         /// <returns></returns>
-        public List<Model.Tables> GetTables(string serverID, string dbName)
+        public List<Tables> GetTables(string serverID, string dbName)
         {
-            List<Model.Tables> tblList = new List<Model.Tables>();
-            using (SqlConnection conn = new SqlConnection(Common.Config.GetConnectionString(serverID, dbName)))
+            List<Tables> tblList = new List<Tables>();
+            using (SqlConnection conn = new SqlConnection(Config.GetConnectionString(serverID, dbName)))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand("SELECT name FROM sysobjects WHERE xtype='u' order by name", conn))
@@ -80,7 +83,7 @@ namespace CodeMaker.Data.SqlServer
                     SqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        tblList.Add(new Model.Tables() { Name = dr.GetString(0) });
+                        tblList.Add(new Tables() { Name = dr.GetString(0) });
                     }
                     dr.Close();
                     dr.Dispose();
@@ -95,10 +98,10 @@ namespace CodeMaker.Data.SqlServer
         /// <param name="serverID"></param>
         /// <param name="dbName"></param>
         /// <returns></returns>
-        public List<Model.Views> GetViews(string serverID, string dbName)
+        public List<Views> GetViews(string serverID, string dbName)
         {
-            List<Model.Views> viewList = new List<Model.Views>();
-            using (SqlConnection conn = new SqlConnection(Common.Config.GetConnectionString(serverID, dbName)))
+            List<Views> viewList = new List<Views>();
+            using (SqlConnection conn = new SqlConnection(Config.GetConnectionString(serverID, dbName)))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand("select name from sys.views order by name", conn))
@@ -106,7 +109,7 @@ namespace CodeMaker.Data.SqlServer
                     SqlDataReader dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        viewList.Add(new Model.Views() { Name = dr.GetString(0) });
+                        viewList.Add(new Views() { Name = dr.GetString(0) });
                     }
                     dr.Close();
                     dr.Dispose();
@@ -121,17 +124,16 @@ namespace CodeMaker.Data.SqlServer
         /// <param name="dbName"></param>
         /// <param name="tableName"></param>
         /// <returns></returns>
-        public List<Model.Fields> GetFields(string serverID, string dbName, string tableName)
+        public List<Fields> GetFields(string serverID, string dbName, string tableName)
         {
-
-            List<Model.Fields> fieldsList = new List<Model.Fields>();
-            Model.Servers server = Common.Config.GetServer(serverID);
+            List<Fields> fieldsList = new List<Fields>();
+            Servers server = Config.GetServer(serverID);
             if (server == null)
             {
                 return fieldsList;
             }
 
-            using (SqlConnection conn = new SqlConnection(Common.Config.GetConnectionString(serverID, dbName)))
+            using (SqlConnection conn = new SqlConnection(Config.GetConnectionString(serverID, dbName)))
             {
                 conn.Open();
                 string sql = server.Type == DatabaseType.SqlServer2000 ?
@@ -153,7 +155,7 @@ namespace CodeMaker.Data.SqlServer
                     {
                         while (dr.Read())
                         {
-                            fieldsList.Add(new Model.Fields()
+                            fieldsList.Add(new Fields()
                             {
                                 Name = dr.GetString(0),
                                 Type = dr.GetString(1),
@@ -171,7 +173,7 @@ namespace CodeMaker.Data.SqlServer
                     {
                         while (dr.Read())
                         {
-                            fieldsList.Add(new Model.Fields()
+                            fieldsList.Add(new Fields()
                             {
                                 Name = dr["name"].ToString(),
                                 Type = dr["type"].ToString(),
@@ -231,7 +233,7 @@ namespace CodeMaker.Data.SqlServer
         /// <returns></returns>
         private bool IsIdentity(string serverID, string dbName, string tableName, string fieldName)
         {
-            using (SqlConnection conn = new SqlConnection(Common.Config.GetConnectionString(serverID, dbName)))
+            using (SqlConnection conn = new SqlConnection(Config.GetConnectionString(serverID, dbName)))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())
@@ -253,7 +255,7 @@ namespace CodeMaker.Data.SqlServer
         /// <returns></returns>
         private string GetFieldNote(string serverID, string dbName, string tableName, string fieldName)
         {
-            using (SqlConnection conn = new SqlConnection(Common.Config.GetConnectionString(serverID, dbName)))
+            using (SqlConnection conn = new SqlConnection(Config.GetConnectionString(serverID, dbName)))
             {
                 conn.Open();
                 using (SqlCommand cmd = new SqlCommand())

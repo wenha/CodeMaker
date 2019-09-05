@@ -15,8 +15,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMaker.IData", "CodeMake
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMaker.Model", "CodeMaker.Model\CodeMaker.Model.csproj", "{C0FEDBBF-496D-4D36-93F8-FE2CE30C4B68}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMake.Access", "CodeMake.Access\CodeMake.Access.csproj", "{44E33259-E5E0-4A35-8E88-62AB362F879A}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMaker", "CodeMaker\CodeMaker.csproj", "{B425602A-65F1-4495-AA0F-42E9E0195F7B}"
 EndProject
 Global
@@ -49,10 +47,6 @@ Global
 		{C0FEDBBF-496D-4D36-93F8-FE2CE30C4B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0FEDBBF-496D-4D36-93F8-FE2CE30C4B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0FEDBBF-496D-4D36-93F8-FE2CE30C4B68}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44E33259-E5E0-4A35-8E88-62AB362F879A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44E33259-E5E0-4A35-8E88-62AB362F879A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44E33259-E5E0-4A35-8E88-62AB362F879A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44E33259-E5E0-4A35-8E88-62AB362F879A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B425602A-65F1-4495-AA0F-42E9E0195F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B425602A-65F1-4495-AA0F-42E9E0195F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B425602A-65F1-4495-AA0F-42E9E0195F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -62,7 +56,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		VisualSVNWorkingCopyRoot = .
 		SolutionGuid = {3702E968-4063-4717-A50D-92DF37831AC8}
+		VisualSVNWorkingCopyRoot = .
 	EndGlobalSection
 EndGlobal
