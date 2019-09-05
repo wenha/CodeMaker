@@ -4,55 +4,68 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CodeMaker.IData;
 
 namespace CodeMaker.Business
 {
     public class Database
     {
         private DatabaseType databaseType = DatabaseType.Empty;
-        private IData.IDataBase DatabaseInstance;
+        private IDataBase DatabaseInstance;
+
+        /// <summary>
+        /// 构造
+        /// </summary>
+        /// <param name="databaseType"></param>
         public Database(DatabaseType databaseType)
         {
             this.databaseType = databaseType;
             DatabaseInstance = Factory.Factory.CreateDatabaseInstance(databaseType);
         }
+
         /// <summary>
         /// 测试数据库连接
         /// </summary>
-        /// <param name="connectionString">连接字符串</param>
+        /// <param name="serverID">连接字符串</param>
         /// <param name="errMessage">错误信息</param>
         /// <returns></returns>
         public bool TestDatabaseConnnection(string serverID, out string errMessage)
         {
             return DatabaseInstance.TestDatabaseConnection(serverID, out errMessage);
         }
+
         /// <summary>
         /// 得到所有数据库
         /// </summary>
-        /// <param name="connconnectionString"></param>
+        /// <param name="serverID"></param>
         /// <returns></returns>
         public List<string> GetDatabases(string serverID)
         {
             return DatabaseInstance.GetDatabaseList(serverID);
         }
+
         /// <summary>
         /// 得到数据库所有表
         /// </summary>
         /// <param name="serverID"></param>
+        /// <param name="dbName"></param>
         /// <returns></returns>
         public List<Model.Tables> GetTables(string serverID, string dbName)
         {
             return DatabaseInstance.GetTables(serverID, dbName);
         }
+
         /// <summary>
         /// 得到数据库所有视图
         /// </summary>
         /// <param name="serverID"></param>
+        /// <param name="dbName"></param>
         /// <returns></returns>
         public List<Model.Views> GetViews(string serverID, string dbName)
         {
             return DatabaseInstance.GetViews(serverID, dbName);
         }
+
         /// <summary>
         /// 得到一个表中所有字段
         /// </summary>

@@ -1,5 +1,6 @@
 ﻿using CodeMaker.Common;
 using CodeMaker.IData;
+using CodeMaker.Model;
 using CodeMaker.Model.Enum;
 using System;
 using System.Collections.Generic;
@@ -14,26 +15,28 @@ namespace CodeMaker.Business
         private ICreateCode createInstance;
         private IDataBase databaseInstance;
         private Import import;
+
         public Builder_Model(DatabaseType dbType)
         {
             this.createInstance = Factory.Factory.CreateCreateCodeInstance(dbType);
             this.databaseInstance = Factory.Factory.CreateDatabaseInstance(dbType);
             this.import = new Import(dbType);
         }
+
         /// <summary>
         /// 得到实体层
         /// </summary>
         /// <param name="param"></param>
         /// <returns></returns>
-        public string GetModelClass(Model.CodeCreate param)
+        public string GetModelClass(CodeCreate param)
         {
-            Model.Servers server = Config.GetServer(param.ServerID);
+            Servers server = Config.GetServer(param.ServerID);
             if (server == null)
             {
                 return string.Empty;
             }
 
-            List<Model.Fields> fields = databaseInstance.GetFields(server.ID, param.DbName, param.TableName);
+            List<Fields> fields = databaseInstance.GetFields(server.ID, param.DbName, param.TableName);
             StringBuilder model = new StringBuilder(import.GetImport_Model());
             model.Append("namespace " + param.NameSpace + (string.IsNullOrEmpty(param.NameSpace) ? "" : ".") + param.CNSC.Model + (string.IsNullOrEmpty(param.NameSpace1) ? "" : "." + param.NameSpace1) + "\r\n");
             model.Append("{\r\n");
