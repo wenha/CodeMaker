@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMaker.Business", "CodeMaker.Business\CodeMaker.Business.csproj", "{3AA29B76-24E6-4089-9542-642BA7294108}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMaker.Common", "CodeMaker.Common\CodeMaker.Common.csproj", "{E8F755B9-A0FD-4C28-82C3-2C785C2DD381}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMaker.Data.SqlServer", "CodeMaker.Data.SqlServer\CodeMaker.Data.SqlServer.csproj", "{90956B9D-BD5E-4ED4-9726-C5C019BE7E35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMaker.Factory", "CodeMaker.Factory\CodeMaker.Factory.csproj", "{B150BA9B-9246-488C-A9B3-F0482BCCA440}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMaker.IData", "CodeMaker.IData\CodeMaker.IData.csproj", "{1539688A-D4C8-4271-B45A-3327D212797B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMaker.Model", "CodeMaker.Model\CodeMaker.Model.csproj", "{C0FEDBBF-496D-4D36-93F8-FE2CE30C4B68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMake.Access", "CodeMake.Access\CodeMake.Access.csproj", "{44E33259-E5E0-4A35-8E88-62AB362F879A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMaker", "CodeMaker\CodeMaker.csproj", "{B425602A-65F1-4495-AA0F-42E9E0195F7B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AA29B76-24E6-4089-9542-642BA7294108}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AA29B76-24E6-4089-9542-642BA7294108}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AA29B76-24E6-4089-9542-642BA7294108}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AA29B76-24E6-4089-9542-642BA7294108}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F755B9-A0FD-4C28-82C3-2C785C2DD381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F755B9-A0FD-4C28-82C3-2C785C2DD381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F755B9-A0FD-4C28-82C3-2C785C2DD381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F755B9-A0FD-4C28-82C3-2C785C2DD381}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90956B9D-BD5E-4ED4-9726-C5C019BE7E35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90956B9D-BD5E-4ED4-9726-C5C019BE7E35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90956B9D-BD5E-4ED4-9726-C5C019BE7E35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90956B9D-BD5E-4ED4-9726-C5C019BE7E35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B150BA9B-9246-488C-A9B3-F0482BCCA440}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B150BA9B-9246-488C-A9B3-F0482BCCA440}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B150BA9B-9246-488C-A9B3-F0482BCCA440}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B150BA9B-9246-488C-A9B3-F0482BCCA440}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1539688A-D4C8-4271-B45A-3327D212797B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1539688A-D4C8-4271-B45A-3327D212797B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1539688A-D4C8-4271-B45A-3327D212797B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1539688A-D4C8-4271-B45A-3327D212797B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0FEDBBF-496D-4D36-93F8-FE2CE30C4B68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0FEDBBF-496D-4D36-93F8-FE2CE30C4B68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0FEDBBF-496D-4D36-93F8-FE2CE30C4B68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0FEDBBF-496D-4D36-93F8-FE2CE30C4B68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E33259-E5E0-4A35-8E88-62AB362F879A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E33259-E5E0-4A35-8E88-62AB362F879A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E33259-E5E0-4A35-8E88-62AB362F879A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E33259-E5E0-4A35-8E88-62AB362F879A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B425602A-65F1-4495-AA0F-42E9E0195F7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B425602A-65F1-4495-AA0F-42E9E0195F7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B425602A-65F1-4495-AA0F-42E9E0195F7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B425602A-65F1-4495-AA0F-42E9E0195F7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		VisualSVNWorkingCopyRoot = .
+		SolutionGuid = {3702E968-4063-4717-A50D-92DF37831AC8}
+	EndGlobalSection
+EndGlobal
