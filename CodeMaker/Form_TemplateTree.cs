@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CodeMaker
 {
-    public partial class Form1 : Form
+    public partial class Form_TemplateTree : Form
     {
-        public Form1()
+        public Form_TemplateTree()
         {
             InitializeComponent();
         }
