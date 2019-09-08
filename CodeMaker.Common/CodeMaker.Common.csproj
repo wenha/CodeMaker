@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
+    <Compile Include="Config_Directory.cs" />
+    <Compile Include="Config_Servers.cs" />
     <Compile Include="Func.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

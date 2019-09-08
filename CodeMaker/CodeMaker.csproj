@@ -112,5 +112,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeMaker.Common\CodeMaker.Common.csproj">
+      <Project>{E8F755B9-A0FD-4C28-82C3-2C785C2DD381}</Project>
+      <Name>CodeMaker.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

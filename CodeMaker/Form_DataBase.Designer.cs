@@ -57,6 +57,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form_DataBase";
             this.Text = "Form_DataBase";
+            this.Load += new System.EventHandler(this.Form_DataBase_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
