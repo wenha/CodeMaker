@@ -21,6 +21,7 @@ namespace CodeMaker.Common
             sw.Close();
             fs.Close();
         }
+        
         /// <summary>
         /// 得到应用程序路径
         /// </summary>

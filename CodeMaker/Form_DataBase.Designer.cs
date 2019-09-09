@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.ServerTreeView = new System.Windows.Forms.TreeView();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -40,20 +40,20 @@
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // treeView1
+            // ServerTreeView
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(0, 25);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(220, 544);
-            this.treeView1.TabIndex = 1;
+            this.ServerTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ServerTreeView.Location = new System.Drawing.Point(0, 25);
+            this.ServerTreeView.Name = "ServerTreeView";
+            this.ServerTreeView.Size = new System.Drawing.Size(220, 544);
+            this.ServerTreeView.TabIndex = 1;
             // 
             // Form_DataBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(220, 569);
-            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.ServerTreeView);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form_DataBase";
             this.Text = "Form_DataBase";
@@ -66,6 +66,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView ServerTreeView;
     }
 }

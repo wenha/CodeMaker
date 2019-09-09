@@ -43,7 +43,11 @@
   <ItemGroup>
     <Compile Include="Config.cs" />
     <Compile Include="Config_Directory.cs" />
+    <Compile Include="Config_NameSpace.cs" />
+    <Compile Include="Config_NameSpaceClass.cs" />
     <Compile Include="Config_Servers.cs" />
+    <Compile Include="Encryption.cs" />
+    <Compile Include="Extension.cs" />
     <Compile Include="Func.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -9,17 +9,17 @@ using CodeMaker.Model;
 
 namespace CodeMaker.Common
 {
-    public class Config_Directory
+    class Config_NameSpaceClass
     {
-        public Config_Directory()
+        public Config_NameSpaceClass()
         {
             XmlFileExists();
         }
-       
+        
         /// <summary>
         /// XML文件路径
         /// </summary>
-        private string XmlFile = string.Format("{0}Config\\Directory.xml", Func.GetAppPath());
+        private string XmlFile = string.Format("{0}Config\\NameSpaceClass.xml", Func.GetAppPath());
         
         /// <summary>
         /// 检查配置文件是否存在，没有则创建
@@ -36,27 +36,35 @@ namespace CodeMaker.Common
                 xelLog.Save(XmlFile);
             }
         }
-
+        
         /// <summary>
         /// 得到所有类命名空间
         /// </summary>
         /// <returns></returns>
-        public List<ConfigDirectory> GetAll()
+        public List<ConfigNameSpaceClass> GetAll()
         {
-            List<ConfigDirectory> list = new List<ConfigDirectory>();
+            List<ConfigNameSpaceClass> list = new List<ConfigNameSpaceClass>();
             try
             {
                 XElement xelem = XElement.Load(XmlFile);
-                var queryXML = from xele in xelem.Elements("directory")
+                var queryXML = from xele in xelem.Elements("namespaceclass")
                                select new
                                {
-                                   name = xele.Element("name").Value
+                                   model = xele.Element("model").Value,
+                                   data = xele.Element("data").Value,
+                                   business = xele.Element("business").Value,
+                                   interface1 = xele.Element("interface").Value,
+                                   factory = xele.Element("factory").Value
                                };
                 foreach (var q in queryXML)
                 {
-                    list.Add(new ConfigDirectory()
+                    list.Add(new ConfigNameSpaceClass()
                     {
-                        Name = q.name
+                        Model = q.model,
+                        Data = q.data,
+                        Business = q.business,
+                        Factory = q.factory,
+                        Interface = q.interface1
                     });
                 }
 
@@ -64,20 +72,24 @@ namespace CodeMaker.Common
             catch { }
             return list;
         }
-
+        
         /// <summary>
         /// 添加一个类命名空间
         /// </summary>
         /// <param name="cns"></param>
-        public bool Add(Model.ConfigDirectory cns)
+        public bool Add(ConfigNameSpaceClass cns)
         {
             try
             {
                 //先删除
-                Delete(cns.Name);
+                Delete(cns.Model);
                 XElement xelem = XElement.Load(XmlFile);
-                XElement newLog = new XElement("directory",
-                                      new XElement("name", cns.Name)
+                XElement newLog = new XElement("namespaceclass",
+                                      new XElement("model", cns.Model),
+                                      new XElement("data", cns.Data),
+                                      new XElement("business", cns.Business),
+                                      new XElement("interface", cns.Interface),
+                                      new XElement("factory", cns.Factory)
                                   );
                 xelem.Add(newLog);
                 xelem.Save(XmlFile);
@@ -88,31 +100,31 @@ namespace CodeMaker.Common
                 return false;
             }
         }
-
+        
         /// <summary>
         /// 保存类命名空间
         /// </summary>
         /// <param name="cns"></param>
         /// <returns></returns>
-        public bool Save(ConfigDirectory cns, string oldmodel = "")
+        public bool Save(ConfigNameSpaceClass cns, string oldmodel = "")
         {
             if (!oldmodel.IsNullOrEmpty())
                 Delete(oldmodel);
             return Add(cns);
         }
-
+        
         /// <summary>
         /// 删除一个命名空间
         /// </summary>
         /// <param name="namespace1"></param>
         /// <returns></returns>
-        public bool Delete(string name)
+        public bool Delete(string model)
         {
             try
             {
                 XElement xelem = XElement.Load(XmlFile);
-                var queryXML = from xele in xelem.Elements("directory")
-                               where xele.Element("name").Value == name
+                var queryXML = from xele in xelem.Elements("namespaceclass")
+                               where xele.Element("model").Value == model
                                select xele;
                 queryXML.Remove();
                 xelem.Save(XmlFile);
@@ -123,27 +135,36 @@ namespace CodeMaker.Common
                 return false;
             }
         }
-
+       
         /// <summary>
         /// 查询一个命名空间
         /// </summary>
         /// <param name="namespace1"></param>
         /// <returns></returns>
-        public ConfigDirectory Get(string name)
+        public ConfigNameSpaceClass Get(string model)
         {
             try
             {
                 XElement xelem = XElement.Load(XmlFile);
-                var queryXML = from xele in xelem.Elements("directory")
-                               where xele.Element("name").Value == name
+                var queryXML = from xele in xelem.Elements("namespaceclass")
+                               where xele.Element("model").Value == model
                                select new
                                {
-                                   name = xele.Element("name").Value
+                                   model = xele.Element("model").Value,
+                                   data = xele.Element("data").Value,
+                                   business = xele.Element("business").Value,
+                                   interface1 = xele.Element("interface").Value,
+                                   factory = xele.Element("factory").Value,
+                                   isdefault = xele.Element("isdefault").Value.ToLower()
                                };
-                ConfigDirectory cns = new ConfigDirectory();
+                ConfigNameSpaceClass cns = new ConfigNameSpaceClass();
                 if (queryXML.Count() > 0)
                 {
-                    cns.Name = queryXML.First().name;
+                    cns.Model = queryXML.First().model;
+                    cns.Data = queryXML.First().data;
+                    cns.Business = queryXML.First().business;
+                    cns.Interface = queryXML.First().interface1;
+                    cns.Factory = queryXML.First().factory;
                 }
                 return cns;
             }
@@ -152,20 +173,24 @@ namespace CodeMaker.Common
                 return null;
             }
         }
-
+        
         /// <summary>
         /// 查询默认命名空间
         /// </summary>
         /// <param name="namespace1"></param>
         /// <returns></returns>
-        public ConfigDirectory GetDefault()
+        public ConfigNameSpaceClass GetDefault()
         {
             var list = GetAll();
             if (list.Count == 0)
             {
-                return new ConfigDirectory()
+                return new ConfigNameSpaceClass()
                 {
-                    Name = ""
+                    Model = "Model",
+                    Data = "Data",
+                    Business = "Business",
+                    Factory = "Factory",
+                    Interface = "IData"
                 };
             }
             else

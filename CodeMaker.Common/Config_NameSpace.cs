@@ -9,18 +9,18 @@ using CodeMaker.Model;
 
 namespace CodeMaker.Common
 {
-    public class Config_Directory
+    public class Config_NameSpace
     {
-        public Config_Directory()
+        public Config_NameSpace()
         {
             XmlFileExists();
         }
-       
+
         /// <summary>
         /// XML文件路径
         /// </summary>
-        private string XmlFile = string.Format("{0}Config\\Directory.xml", Func.GetAppPath());
-        
+        private string XmlFile = string.Format("{0}Config\\NameSpace.xml", Func.GetAppPath());
+
         /// <summary>
         /// 检查配置文件是否存在，没有则创建
         /// </summary>
@@ -32,52 +32,54 @@ namespace CodeMaker.Common
                 XDocument xelLog = new XDocument(
                     new XDeclaration("1.0", "utf-8", string.Empty),
                     new XElement("root")
-                 );
+                );
                 xelLog.Save(XmlFile);
             }
         }
 
         /// <summary>
-        /// 得到所有类命名空间
+        /// 得到所有命名空间
         /// </summary>
         /// <returns></returns>
-        public List<ConfigDirectory> GetAll()
+        public List<ConfigNameSpace> GetAll()
         {
-            List<ConfigDirectory> list = new List<ConfigDirectory>();
+            List<ConfigNameSpace> list = new List<ConfigNameSpace>();
             try
             {
                 XElement xelem = XElement.Load(XmlFile);
-                var queryXML = from xele in xelem.Elements("directory")
+                var queryXML = from xele in xelem.Elements("namespace")
                                select new
                                {
-                                   name = xele.Element("name").Value
+                                   name1 = xele.Element("namespace1").Value,
+                                   name2 = xele.Element("namespace2").Value
                                };
-                foreach (var q in queryXML)
+                foreach (var q in queryXML.OrderBy(p => p.name1))
                 {
-                    list.Add(new ConfigDirectory()
+                    list.Add(new ConfigNameSpace()
                     {
-                        Name = q.name
+                        Name1 = q.name1,
+                        Name2 = q.name2
                     });
                 }
-
             }
             catch { }
             return list;
         }
 
         /// <summary>
-        /// 添加一个类命名空间
+        /// 添加一个命名空间
         /// </summary>
         /// <param name="cns"></param>
-        public bool Add(Model.ConfigDirectory cns)
+        public bool Add(ConfigNameSpace cns)
         {
             try
             {
                 //先删除
-                Delete(cns.Name);
+                Delete(cns.Name1);
                 XElement xelem = XElement.Load(XmlFile);
-                XElement newLog = new XElement("directory",
-                                      new XElement("name", cns.Name)
+                XElement newLog = new XElement("namespace",
+                                      new XElement("namespace1", cns.Name1),
+                                      new XElement("namespace2", cns.Name2)
                                   );
                 xelem.Add(newLog);
                 xelem.Save(XmlFile);
@@ -90,14 +92,14 @@ namespace CodeMaker.Common
         }
 
         /// <summary>
-        /// 保存类命名空间
+        /// 保存命名空间
         /// </summary>
         /// <param name="cns"></param>
         /// <returns></returns>
-        public bool Save(ConfigDirectory cns, string oldmodel = "")
+        public bool Save(ConfigNameSpace cns, string oldname1 = "")
         {
-            if (!oldmodel.IsNullOrEmpty())
-                Delete(oldmodel);
+            if (!oldname1.IsNullOrEmpty())
+                Delete(oldname1);
             return Add(cns);
         }
 
@@ -106,13 +108,13 @@ namespace CodeMaker.Common
         /// </summary>
         /// <param name="namespace1"></param>
         /// <returns></returns>
-        public bool Delete(string name)
+        public bool Delete(string namespace1)
         {
             try
             {
                 XElement xelem = XElement.Load(XmlFile);
-                var queryXML = from xele in xelem.Elements("directory")
-                               where xele.Element("name").Value == name
+                var queryXML = from xele in xelem.Elements("namespace")
+                               where xele.Element("namespace1").Value == namespace1
                                select xele;
                 queryXML.Remove();
                 xelem.Save(XmlFile);
@@ -129,21 +131,24 @@ namespace CodeMaker.Common
         /// </summary>
         /// <param name="namespace1"></param>
         /// <returns></returns>
-        public ConfigDirectory Get(string name)
+        public ConfigNameSpace Get(string namespace1)
         {
             try
             {
                 XElement xelem = XElement.Load(XmlFile);
-                var queryXML = from xele in xelem.Elements("directory")
-                               where xele.Element("name").Value == name
+                var queryXML = from xele in xelem.Elements("namespace")
+                               where xele.Element("namespace1").Value == namespace1
                                select new
                                {
-                                   name = xele.Element("name").Value
+                                   name1 = xele.Element("namespace1").Value,
+                                   name2 = xele.Element("namespace2").Value,
+                                   isdefault = xele.Element("isdefault").Value.ToLower()
                                };
-                ConfigDirectory cns = new ConfigDirectory();
+                ConfigNameSpace cns = new ConfigNameSpace();
                 if (queryXML.Count() > 0)
                 {
-                    cns.Name = queryXML.First().name;
+                    cns.Name1 = queryXML.First().name1;
+                    cns.Name2 = queryXML.First().name2;
                 }
                 return cns;
             }
@@ -158,20 +163,18 @@ namespace CodeMaker.Common
         /// </summary>
         /// <param name="namespace1"></param>
         /// <returns></returns>
-        public ConfigDirectory GetDefault()
+        public ConfigNameSpace GetDefault()
         {
             var list = GetAll();
             if (list.Count == 0)
             {
-                return new ConfigDirectory()
-                {
-                    Name = ""
-                };
+                return null;
             }
             else
             {
                 return list.Last();
             }
+
         }
     }
 }
