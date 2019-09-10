@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddDatabase.cs">
+    <Compile Include="Form_AddDatabase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddDatabase.Designer.cs">
-      <DependentUpon>AddDatabase.cs</DependentUpon>
+    <Compile Include="Form_AddDatabase.Designer.cs">
+      <DependentUpon>Form_AddDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -78,8 +78,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AddDatabase.resx">
-      <DependentUpon>AddDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Form_AddDatabase.resx">
+      <DependentUpon>Form_AddDatabase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

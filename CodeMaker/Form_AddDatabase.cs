@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CodeMaker
 {
-    public partial class AddDatabase : Form
+    public partial class Form_AddDatabase : Form
     {
-        public AddDatabase()
+        public Form_AddDatabase()
         {
             InitializeComponent();
         }

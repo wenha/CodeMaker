@@ -1,6 +1,6 @@
 ﻿namespace CodeMaker
 {
-    partial class AddDatabase
+    partial class Form_AddDatabase
     {
         /// <summary>
         /// Required designer variable.

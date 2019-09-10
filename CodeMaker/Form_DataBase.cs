@@ -54,5 +54,11 @@ namespace CodeMaker
                 ServerTreeView.Nodes.Add(rootNode);
             }
         }
+
+        private void toolBtnAdd_Click(object sender, EventArgs e)
+        {
+            Form_AddDatabase f_add = new Form_AddDatabase();
+            f_add.ShowDialog();
+        }
     }
 }
