@@ -19,13 +19,18 @@ namespace CodeMaker.Common
         /// <summary>
         /// XML文件路径
         /// </summary>
-        private string XmlFile = string.Format("{0}Config\\Servers.xml", Func.GetAppPath());
-       
+        private readonly string xmlFileFolder = string.Format("{0}Config", Func.GetAppPath());
+        private readonly string XmlFile = string.Format("{0}Config\\Servers.xml", Func.GetAppPath());
+
         /// <summary>
         /// 检查配置文件是否存在，没有则创建
         /// </summary>
         private void XmlFileExists()
         {
+            if (!Directory.Exists(xmlFileFolder))
+            {
+                Directory.CreateDirectory(xmlFileFolder);
+            }
             FileInfo fiXML = new FileInfo(XmlFile);
             if (!(fiXML.Exists))
             {
