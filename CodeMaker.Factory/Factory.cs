@@ -51,7 +51,7 @@ namespace CodeMaker.Factory
 
         private static object CreateInstance(string dllName, string className)
         {
-            object obj = Assembly.Load(string.Format("CodeMaker.Data.{0}", dllName)).CreateInstance(string.Format("HaoCodeBuilder.Data.{0}.{1}", dllName, className));
+            object obj = Assembly.Load(string.Format("CodeMaker.Data.{0}", dllName)).CreateInstance(string.Format("CodeMaker.Data.{0}.{1}", dllName, className));
             if (obj == null)
             {
                 Func.WriteLog(string.Format("CodeMaker.Data.{0}.{1} 创建实例为空", dllName, className));

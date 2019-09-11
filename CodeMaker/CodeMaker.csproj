@@ -52,6 +52,12 @@
     <Compile Include="Form_AddDatabase.Designer.cs">
       <DependentUpon>Form_AddDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_AddDatabase_SqlServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_AddDatabase_SqlServer.Designer.cs">
+      <DependentUpon>Form_AddDatabase_SqlServer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form_AddDatabase.resx">
       <DependentUpon>Form_AddDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_AddDatabase_SqlServer.resx">
+      <DependentUpon>Form_AddDatabase_SqlServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
@@ -113,6 +122,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CodeMaker.Business\CodeMaker.Business.csproj">
+      <Project>{3AA29B76-24E6-4089-9542-642BA7294108}</Project>
+      <Name>CodeMaker.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CodeMaker.Common\CodeMaker.Common.csproj">
       <Project>{E8F755B9-A0FD-4C28-82C3-2C785C2DD381}</Project>
       <Name>CodeMaker.Common</Name>

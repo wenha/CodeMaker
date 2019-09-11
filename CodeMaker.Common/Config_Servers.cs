@@ -91,7 +91,6 @@ namespace CodeMaker.Common
         {
             try
             {
-
                 //先删除
                 Delete(cns.Name);
                 XElement xelem = XElement.Load(XmlFile);
