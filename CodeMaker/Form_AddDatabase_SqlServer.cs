@@ -57,7 +57,6 @@ namespace CodeMaker
                 this.tBox_SqlServer_UserName.Text = defaultServer.Uid;
                 this.cBox_SqlServer_Remenber.Checked = !defaultServer.Pwd.IsNullOrEmpty();
             }
-
         }
 
         /// <summary>
@@ -161,7 +160,6 @@ namespace CodeMaker
                 Uid = userId
             };
             Form_AddDatabase.AddServerToXml(server);
-
         }
     }
 }
