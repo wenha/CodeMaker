@@ -296,5 +296,10 @@ namespace CodeMaker
 
             return node1;
         }
+
+        private void toolBtnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

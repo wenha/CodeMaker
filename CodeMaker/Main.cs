@@ -62,5 +62,10 @@ namespace CodeMaker
         {
             ShowHome();
         }
+
+        private void toolBtn_Server_Click(object sender, EventArgs e)
+        {
+            ShowServerList();
+        }
     }
 }

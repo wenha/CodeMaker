@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_DataBase));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolBtnAdd = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolBtnDelete = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.ServerTreeView = new System.Windows.Forms.TreeView();
@@ -42,7 +42,7 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolBtnAdd,
-            this.toolStripButton2,
+            this.toolBtnDelete,
             this.toolStripSeparator1,
             this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
@@ -61,14 +61,15 @@
             this.toolBtnAdd.Text = "添加数据库服务器";
             this.toolBtnAdd.Click += new System.EventHandler(this.toolBtnAdd_Click);
             // 
-            // toolStripButton2
+            // toolBtnDelete
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "注销数据库服务器";
+            this.toolBtnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolBtnDelete.Image")));
+            this.toolBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolBtnDelete.Name = "toolBtnDelete";
+            this.toolBtnDelete.Size = new System.Drawing.Size(23, 22);
+            this.toolBtnDelete.Text = "注销数据库服务器";
+            this.toolBtnDelete.Click += new System.EventHandler(this.toolBtnDelete_Click);
             // 
             // toolStripSeparator1
             // 
@@ -86,8 +87,10 @@
             // 
             // ServerTreeView
             // 
+            this.ServerTreeView.CheckBoxes = true;
+            this.ServerTreeView.Cursor = System.Windows.Forms.Cursors.Default;
             this.ServerTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ServerTreeView.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ServerTreeView.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ServerTreeView.Location = new System.Drawing.Point(0, 25);
             this.ServerTreeView.Name = "ServerTreeView";
             this.ServerTreeView.Size = new System.Drawing.Size(220, 544);
@@ -118,7 +121,7 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.TreeView ServerTreeView;
         private System.Windows.Forms.ToolStripButton toolBtnAdd;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolBtnDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
     }

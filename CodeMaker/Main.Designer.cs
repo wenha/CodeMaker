@@ -230,6 +230,7 @@
             this.toolBtn_Server.Name = "toolBtn_Server";
             this.toolBtn_Server.Size = new System.Drawing.Size(23, 22);
             this.toolBtn_Server.Text = "显示数据库管理器";
+            this.toolBtn_Server.Click += new System.EventHandler(this.toolBtn_Server_Click);
             // 
             // toolStripSeparator1
             // 
