@@ -1,6 +1,6 @@
 ﻿namespace CodeMaker
 {
-    partial class Form_Home
+    partial class Form_Base
     {
         /// <summary>
         /// Required designer variable.
@@ -30,15 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // Form_Home
+            // Form_Base
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "Form_Home";
-            this.TabText = "Form_Home";
-            this.Text = "Form_Home";
-            this.Load += new System.EventHandler(this.Form_Home_Load);
+            this.Name = "Form_Base";
+            this.TabText = "Form_Base";
+            this.Text = "Form_Base";
+            this.Load += new System.EventHandler(this.Form_Base_Load);
             this.ResumeLayout(false);
 
         }

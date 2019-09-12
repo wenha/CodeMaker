@@ -11,10 +11,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CodeMaker.Model.Enum;
 using CodeMaker.Business;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace CodeMaker
 {
-    public partial class Form_DataBase : Form
+    public partial class Form_DataBase : DockContent
     {
         private delegate void AddTreeNode(bool refresh);
 

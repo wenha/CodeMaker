@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace CodeMaker
 {
@@ -30,12 +31,11 @@ namespace CodeMaker
         private void Main_Load(object sender, EventArgs e)
         {
             form_DataBase = new Form_DataBase();
-            form_DataBase.TopLevel = false;
-            form_DataBase.Dock = DockStyle.Left;
-            form_DataBase.FormBorderStyle = FormBorderStyle.None;
+            form_DataBase.Show(mainPanel, DockState.DockLeft);
 
-            splitContainer1.Panel1.Controls.Add(form_DataBase);
-            form_DataBase.Show();
+            form_Home = new Form_Home();
+            form_Home.Show(mainPanel);
+            form_Home.Activate();
         }
 
         public void ShowServerList()
@@ -43,14 +43,24 @@ namespace CodeMaker
             if (form_DataBase == null)
             {
                 form_DataBase = new Form_DataBase();
-                form_DataBase.TopLevel = false;
-                form_DataBase.Dock = DockStyle.Left;
-                form_DataBase.FormBorderStyle = FormBorderStyle.None;
-
-                splitContainer1.Panel1.Controls.Add(form_DataBase);
-                form_DataBase.Show();
+                form_DataBase.Show(mainPanel, DockState.DockLeftAutoHide);
             }
             form_DataBase.Activate();
+        }
+
+        public void ShowHome()
+        {
+            if (form_Home == null)
+            {
+                form_Home = new Form_Home();
+                form_Home.Show(mainPanel);
+            }
+            form_Home.Activate();
+        }
+
+        private void toolBtn_Home_Click(object sender, EventArgs e)
+        {
+            ShowHome();
         }
     }
 }

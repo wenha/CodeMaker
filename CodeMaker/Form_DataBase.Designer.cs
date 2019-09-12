@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_DataBase));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.ServerTreeView = new System.Windows.Forms.TreeView();
             this.toolBtnAdd = new System.Windows.Forms.ToolStripButton();
-            this.toolBtnDelete = new System.Windows.Forms.ToolStripButton();
-            this.toolBtnRefresh = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.ServerTreeView = new System.Windows.Forms.TreeView();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -41,21 +42,14 @@
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolBtnAdd,
-            this.toolBtnDelete,
-            this.toolBtnRefresh});
+            this.toolStripButton2,
+            this.toolStripSeparator1,
+            this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(220, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
-            // 
-            // ServerTreeView
-            // 
-            this.ServerTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ServerTreeView.Location = new System.Drawing.Point(0, 25);
-            this.ServerTreeView.Name = "ServerTreeView";
-            this.ServerTreeView.Size = new System.Drawing.Size(220, 544);
-            this.ServerTreeView.TabIndex = 1;
             // 
             // toolBtnAdd
             // 
@@ -64,26 +58,41 @@
             this.toolBtnAdd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolBtnAdd.Name = "toolBtnAdd";
             this.toolBtnAdd.Size = new System.Drawing.Size(23, 22);
-            this.toolBtnAdd.Text = "toolStripButton1";
+            this.toolBtnAdd.Text = "添加数据库服务器";
             this.toolBtnAdd.Click += new System.EventHandler(this.toolBtnAdd_Click);
             // 
-            // toolBtnDelete
+            // toolStripButton2
             // 
-            this.toolBtnDelete.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolBtnDelete.Image = ((System.Drawing.Image)(resources.GetObject("toolBtnDelete.Image")));
-            this.toolBtnDelete.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolBtnDelete.Name = "toolBtnDelete";
-            this.toolBtnDelete.Size = new System.Drawing.Size(23, 22);
-            this.toolBtnDelete.Text = "toolStripButton1";
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "注销数据库服务器";
             // 
-            // toolBtnRefresh
+            // toolStripSeparator1
             // 
-            this.toolBtnRefresh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolBtnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("toolBtnRefresh.Image")));
-            this.toolBtnRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolBtnRefresh.Name = "toolBtnRefresh";
-            this.toolBtnRefresh.Size = new System.Drawing.Size(23, 22);
-            this.toolBtnRefresh.Text = "toolStripButton1";
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "刷新";
+            // 
+            // ServerTreeView
+            // 
+            this.ServerTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ServerTreeView.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ServerTreeView.Location = new System.Drawing.Point(0, 25);
+            this.ServerTreeView.Name = "ServerTreeView";
+            this.ServerTreeView.Size = new System.Drawing.Size(220, 544);
+            this.ServerTreeView.TabIndex = 1;
+            this.ServerTreeView.DoubleClick += new System.EventHandler(this.serverTreeView_DoubleClick);
             // 
             // Form_DataBase
             // 
@@ -93,7 +102,9 @@
             this.Controls.Add(this.ServerTreeView);
             this.Controls.Add(this.toolStrip1);
             this.Name = "Form_DataBase";
-            this.Text = "Form_DataBase";
+            this.ShowIcon = false;
+            this.TabText = "数据库服务器";
+            this.Text = "数据库服务器";
             this.Load += new System.EventHandler(this.Form_DataBase_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -107,7 +118,8 @@
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.TreeView ServerTreeView;
         private System.Windows.Forms.ToolStripButton toolBtnAdd;
-        private System.Windows.Forms.ToolStripButton toolBtnDelete;
-        private System.Windows.Forms.ToolStripButton toolBtnRefresh;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
     }
 }

@@ -7,17 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WeifenLuo.WinFormsUI.Docking;
 
 namespace CodeMaker
 {
-    public partial class Form_Home : Form_Base
+    public partial class Form_Base : DockContent
     {
-        public Form_Home()
+        public Form_Base()
         {
             InitializeComponent();
         }
 
-        private void Form_Home_Load(object sender, EventArgs e)
+        private void Form_Base_Load(object sender, EventArgs e)
         {
 
         }
