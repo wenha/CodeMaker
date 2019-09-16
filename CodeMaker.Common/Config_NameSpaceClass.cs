@@ -9,7 +9,7 @@ using CodeMaker.Model;
 
 namespace CodeMaker.Common
 {
-    class Config_NameSpaceClass
+    public class Config_NameSpaceClass
     {
         public Config_NameSpaceClass()
         {

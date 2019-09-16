@@ -112,5 +112,10 @@ namespace CodeMaker
             Form_Config_NameSpace fcn = new Form_Config_NameSpace();
             fcn.ShowDialog();
         }
+
+        private void toolStripMenu_Build_Folder_Click(object sender, EventArgs e)
+        {
+            form_DataBase.ShowCodeDir();
+        }
     }
 }

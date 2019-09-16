@@ -82,6 +82,12 @@
     <Compile Include="Form_Code_Area.Designer.cs">
       <DependentUpon>Form_Code_Area.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_Code_ConfigDir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Code_ConfigDir.Designer.cs">
+      <DependentUpon>Form_Code_ConfigDir.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_Config_Class.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Code_Area.resx">
       <DependentUpon>Form_Code_Area.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Code_ConfigDir.resx">
+      <DependentUpon>Form_Code_ConfigDir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Config_Class.resx">
       <DependentUpon>Form_Config_Class.cs</DependentUpon>

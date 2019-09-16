@@ -328,5 +328,65 @@ namespace CodeMaker
             new Config_Servers().Delete(server.ID);
             rootNode.Remove();
         }
+
+        public void ShowCodeDir()
+        {
+            List<TreeNode> Nodes = Main.form_DataBase.GetTreeViewSelected();
+
+            if(Nodes.Count == 0)
+            {
+                var selNode = Main.form_DataBase.ServerTreeView.SelectedNode;
+                var selNodeTagType = ((TreeNodeTag)selNode.Tag).Type;
+                if(selNode == null || (selNodeTagType != TreeNodeType.Table && selNodeTagType != TreeNodeType.View))
+                {
+                    MessageBox.Show("请选择要生成代码的表或视图", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Main.Instance.ShowServerList();
+                    return;
+                }
+                else
+                {
+                    Nodes.Add(selNode);
+                }
+            }
+            Form_Code_ConfigDir fccd = new Form_Code_ConfigDir();
+            fccd.ShowDialog();
+        }
+
+        /// <summary>
+        /// 获取选中节点表（视图）集合
+        /// </summary>
+        /// <returns></returns>
+        public List<TreeNode> GetTreeViewSelected()
+        {
+            List<TreeNode> list = new List<TreeNode>();
+
+            TreeNodeCollection rootNodes = ServerTreeView.Nodes;
+
+            foreach(TreeNode node in rootNodes)
+            {
+                var selNodeTagType = ((TreeNodeTag)node.Tag).Type;
+                if(node.Checked && (selNodeTagType == TreeNodeType.Table || selNodeTagType == TreeNodeType.View))
+                {
+                    list.Add(node);
+                }
+                AddSelectedNodes(node, list);
+            }
+            return list;
+        }
+
+        private void AddSelectedNodes(TreeNode node, List<TreeNode> list)
+        {
+            TreeNodeCollection nodes = node.Nodes;
+
+            foreach (TreeNode n in nodes)
+            {
+                var selNodeTagType = ((TreeNodeTag)node.Tag).Type;
+                if (node.Checked && (selNodeTagType == TreeNodeType.Table || selNodeTagType == TreeNodeType.View))
+                {
+                    list.Add(node);
+                }
+                AddSelectedNodes(n, list);
+            }
+        }
     }
 }
