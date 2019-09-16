@@ -67,5 +67,50 @@ namespace CodeMaker
         {
             ShowServerList();
         }
+
+        private void toolBtn_AddDatabase_Click(object sender, EventArgs e)
+        {
+            form_DataBase.toolBtnAdd_Click(sender, e);
+        }
+
+        private void toolBtn_DelDatabase_Click(object sender, EventArgs e)
+        {
+            form_DataBase.RemoveServer();
+        }
+
+        private void toolStripMenu_Server_Add_Click(object sender, EventArgs e)
+        {
+            form_DataBase.toolBtnAdd_Click(sender, e);
+        }
+
+        private void toolStripMenu_Server_Delete_Click(object sender, EventArgs e)
+        {
+            form_DataBase.RemoveServer();
+        }
+
+        private void toolStripMenu_Server_Exit_Click(object sender, EventArgs e)
+        {
+            Exit();
+        }
+
+        /// <summary>
+        /// 退出系统
+        /// </summary>
+        private void Exit()
+        {
+            Application.Exit();
+        }
+
+        private void toolStripMenu_Help_About_Click(object sender, EventArgs e)
+        {
+            Form_About fa = new Form_About();
+            fa.ShowDialog();
+        }
+
+        private void toolStripMenu_Config_NameSpace_Click(object sender, EventArgs e)
+        {
+            Form_Config_NameSpace fcn = new Form_Config_NameSpace();
+            fcn.ShowDialog();
+        }
     }
 }

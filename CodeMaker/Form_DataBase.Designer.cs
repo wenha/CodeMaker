@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_DataBase));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolBtnAdd = new System.Windows.Forms.ToolStripButton();
@@ -35,6 +36,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.ServerTreeView = new System.Windows.Forms.TreeView();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,11 +93,27 @@
             this.ServerTreeView.Cursor = System.Windows.Forms.Cursors.Default;
             this.ServerTreeView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ServerTreeView.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ServerTreeView.ImageIndex = 0;
+            this.ServerTreeView.ImageList = this.imageList1;
             this.ServerTreeView.Location = new System.Drawing.Point(0, 25);
             this.ServerTreeView.Name = "ServerTreeView";
+            this.ServerTreeView.SelectedImageIndex = 0;
+            this.ServerTreeView.ShowLines = false;
+            this.ServerTreeView.ShowNodeToolTips = true;
             this.ServerTreeView.Size = new System.Drawing.Size(220, 544);
             this.ServerTreeView.TabIndex = 1;
             this.ServerTreeView.DoubleClick += new System.EventHandler(this.serverTreeView_DoubleClick);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "(36,46).png");
+            this.imageList1.Images.SetKeyName(1, "(42,48).png");
+            this.imageList1.Images.SetKeyName(2, "(18,12).png");
+            this.imageList1.Images.SetKeyName(3, "(11,30).png");
+            this.imageList1.Images.SetKeyName(4, "(02,29).png");
+            this.imageList1.Images.SetKeyName(5, "pri.png");
             // 
             // Form_DataBase
             // 
@@ -124,5 +142,6 @@
         private System.Windows.Forms.ToolStripButton toolBtnDelete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

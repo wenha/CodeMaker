@@ -57,7 +57,7 @@ namespace CodeMaker
             }
         }
 
-        private void toolBtnAdd_Click(object sender, EventArgs e)
+        public void toolBtnAdd_Click(object sender, EventArgs e)
         {
             Form_AddDatabase f_add = new Form_AddDatabase();
             f_add.ShowDialog();
@@ -300,6 +300,33 @@ namespace CodeMaker
         private void toolBtnDelete_Click(object sender, EventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// 注销数据库
+        /// </summary>
+        public void RemoveServer()
+        {
+            if (ServerTreeView.SelectedNode == null)
+            {
+                return;
+            }
+
+            TreeNode rootNode = GetRoot(ServerTreeView.SelectedNode);
+
+            if(rootNode == null)
+            {
+                return;
+            }
+
+            TreeNodeTag tag = (TreeNodeTag)rootNode.Tag;
+            if(tag.Type != TreeNodeType.Server)
+            {
+                return;
+            }
+            Servers server = (Servers)tag.Tag;
+            new Config_Servers().Delete(server.ID);
+            rootNode.Remove();
         }
     }
 }

@@ -123,7 +123,9 @@
             this.ClientSize = new System.Drawing.Size(436, 354);
             this.Controls.Add(this.panel1);
             this.Name = "Form_AddDatabase";
-            this.Text = "AddDatabase";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "添加服务器";
             this.Load += new System.EventHandler(this.Form_AddDatabase_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

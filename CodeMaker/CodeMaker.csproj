@@ -52,6 +52,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form_About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_About.Designer.cs">
+      <DependentUpon>Form_About.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_AddDatabase.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,24 @@
     </Compile>
     <Compile Include="Form_Code_Area.Designer.cs">
       <DependentUpon>Form_Code_Area.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Config_Class.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Config_Class.Designer.cs">
+      <DependentUpon>Form_Config_Class.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Config_NameSapceProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Config_NameSapceProject.Designer.cs">
+      <DependentUpon>Form_Config_NameSapceProject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_Config_NameSpace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_Config_NameSpace.Designer.cs">
+      <DependentUpon>Form_Config_NameSpace.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -102,6 +126,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form_About.resx">
+      <DependentUpon>Form_About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_AddDatabase.resx">
       <DependentUpon>Form_AddDatabase.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +140,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Code_Area.resx">
       <DependentUpon>Form_Code_Area.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Config_Class.resx">
+      <DependentUpon>Form_Config_Class.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Config_NameSapceProject.resx">
+      <DependentUpon>Form_Config_NameSapceProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_Config_NameSpace.resx">
+      <DependentUpon>Form_Config_NameSpace.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form_Home.resx">
       <DependentUpon>Form_Home.cs</DependentUpon>

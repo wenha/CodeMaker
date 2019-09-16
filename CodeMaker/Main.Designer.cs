@@ -31,20 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.服务器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.添加数据库服务器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.注销数据库服务器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenu_Server_Add = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenu_Server_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenu_Server_Exit = new System.Windows.Forms.ToolStripMenuItem();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.命名空间设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.类库名称设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.保存目录设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.生成ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.生成至文本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.生成至目录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.视图ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolBtn_Home = new System.Windows.Forms.ToolStripButton();
             this.toolBtn_Server = new System.Windows.Forms.ToolStripButton();
@@ -62,6 +55,13 @@
             this.toolBtn_About = new System.Windows.Forms.ToolStripButton();
             this.toolBtn_Exit = new System.Windows.Forms.ToolStripButton();
             this.mainPanel = new WeifenLuo.WinFormsUI.Docking.DockPanel();
+            this.toolStripMenu_Config_NameSpace = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenu_Config_Class = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenu_Config_Save = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据库服务器配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenu_Build_Text = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenu_Build_Folder = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenu_Help_About = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +72,6 @@
             this.服务器ToolStripMenuItem,
             this.设置ToolStripMenuItem,
             this.生成ToolStripMenuItem,
-            this.视图ToolStripMenuItem,
             this.帮助ToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -83,110 +82,74 @@
             // 服务器ToolStripMenuItem
             // 
             this.服务器ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.添加数据库服务器ToolStripMenuItem,
-            this.注销数据库服务器ToolStripMenuItem,
+            this.toolStripMenu_Server_Add,
+            this.toolStripMenu_Server_Delete,
             this.toolStripSeparator5,
-            this.toolStripMenuItem1});
+            this.toolStripMenu_Server_Exit});
             this.服务器ToolStripMenuItem.Name = "服务器ToolStripMenuItem";
-            this.服务器ToolStripMenuItem.Size = new System.Drawing.Size(56, 21);
-            this.服务器ToolStripMenuItem.Text = "服务器";
+            this.服务器ToolStripMenuItem.ShortcutKeyDisplayString = "(F)";
+            this.服务器ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F)));
+            this.服务器ToolStripMenuItem.Size = new System.Drawing.Size(70, 21);
+            this.服务器ToolStripMenuItem.Text = "服务器(&F)";
             // 
-            // 添加数据库服务器ToolStripMenuItem
+            // toolStripMenu_Server_Add
             // 
-            this.添加数据库服务器ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("添加数据库服务器ToolStripMenuItem.Image")));
-            this.添加数据库服务器ToolStripMenuItem.Name = "添加数据库服务器ToolStripMenuItem";
-            this.添加数据库服务器ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.添加数据库服务器ToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.添加数据库服务器ToolStripMenuItem.Text = "添加数据库服务器(&N)";
+            this.toolStripMenu_Server_Add.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenu_Server_Add.Image")));
+            this.toolStripMenu_Server_Add.Name = "toolStripMenu_Server_Add";
+            this.toolStripMenu_Server_Add.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.toolStripMenu_Server_Add.Size = new System.Drawing.Size(237, 22);
+            this.toolStripMenu_Server_Add.Text = "添加数据库服务器(&N)";
+            this.toolStripMenu_Server_Add.Click += new System.EventHandler(this.toolStripMenu_Server_Add_Click);
             // 
-            // 注销数据库服务器ToolStripMenuItem
+            // toolStripMenu_Server_Delete
             // 
-            this.注销数据库服务器ToolStripMenuItem.Name = "注销数据库服务器ToolStripMenuItem";
-            this.注销数据库服务器ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.注销数据库服务器ToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
-            this.注销数据库服务器ToolStripMenuItem.Text = "注销数据库服务器(&E)";
+            this.toolStripMenu_Server_Delete.Name = "toolStripMenu_Server_Delete";
+            this.toolStripMenu_Server_Delete.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.toolStripMenu_Server_Delete.Size = new System.Drawing.Size(237, 22);
+            this.toolStripMenu_Server_Delete.Text = "注销数据库服务器(&E)";
+            this.toolStripMenu_Server_Delete.Click += new System.EventHandler(this.toolStripMenu_Server_Delete_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(234, 6);
             // 
-            // toolStripMenuItem1
+            // toolStripMenu_Server_Exit
             // 
-            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(237, 22);
-            this.toolStripMenuItem1.Text = "退出生成器(&Q)";
+            this.toolStripMenu_Server_Exit.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenu_Server_Exit.Image")));
+            this.toolStripMenu_Server_Exit.Name = "toolStripMenu_Server_Exit";
+            this.toolStripMenu_Server_Exit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.toolStripMenu_Server_Exit.Size = new System.Drawing.Size(237, 22);
+            this.toolStripMenu_Server_Exit.Text = "退出生成器(&Q)";
+            this.toolStripMenu_Server_Exit.Click += new System.EventHandler(this.toolStripMenu_Server_Exit_Click);
             // 
             // 设置ToolStripMenuItem
             // 
             this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.命名空间设置ToolStripMenuItem,
-            this.类库名称设置ToolStripMenuItem,
-            this.保存目录设置ToolStripMenuItem});
+            this.toolStripMenu_Config_NameSpace,
+            this.toolStripMenu_Config_Class,
+            this.toolStripMenu_Config_Save,
+            this.数据库服务器配置ToolStripMenuItem});
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.设置ToolStripMenuItem.Text = "设置";
-            // 
-            // 命名空间设置ToolStripMenuItem
-            // 
-            this.命名空间设置ToolStripMenuItem.Name = "命名空间设置ToolStripMenuItem";
-            this.命名空间设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.命名空间设置ToolStripMenuItem.Text = "命名空间设置";
-            // 
-            // 类库名称设置ToolStripMenuItem
-            // 
-            this.类库名称设置ToolStripMenuItem.Name = "类库名称设置ToolStripMenuItem";
-            this.类库名称设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.类库名称设置ToolStripMenuItem.Text = "类库名称设置";
-            // 
-            // 保存目录设置ToolStripMenuItem
-            // 
-            this.保存目录设置ToolStripMenuItem.Name = "保存目录设置ToolStripMenuItem";
-            this.保存目录设置ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.保存目录设置ToolStripMenuItem.Text = "保存目录设置";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.设置ToolStripMenuItem.Text = "设置(&C)";
             // 
             // 生成ToolStripMenuItem
             // 
             this.生成ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.生成至文本ToolStripMenuItem,
-            this.生成至目录ToolStripMenuItem});
+            this.toolStripMenu_Build_Text,
+            this.toolStripMenu_Build_Folder});
             this.生成ToolStripMenuItem.Name = "生成ToolStripMenuItem";
-            this.生成ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.生成ToolStripMenuItem.Text = "生成";
-            // 
-            // 生成至文本ToolStripMenuItem
-            // 
-            this.生成至文本ToolStripMenuItem.Name = "生成至文本ToolStripMenuItem";
-            this.生成至文本ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.生成至文本ToolStripMenuItem.Text = "生成至文本";
-            // 
-            // 生成至目录ToolStripMenuItem
-            // 
-            this.生成至目录ToolStripMenuItem.Name = "生成至目录ToolStripMenuItem";
-            this.生成至目录ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.生成至目录ToolStripMenuItem.Text = "生成至目录";
-            // 
-            // 视图ToolStripMenuItem
-            // 
-            this.视图ToolStripMenuItem.Name = "视图ToolStripMenuItem";
-            this.视图ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.视图ToolStripMenuItem.Text = "视图";
+            this.生成ToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.生成ToolStripMenuItem.Text = "生成(&B)";
             // 
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.关于ToolStripMenuItem});
+            this.toolStripMenu_Help_About});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
-            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 21);
-            this.帮助ToolStripMenuItem.Text = "帮助";
-            // 
-            // 关于ToolStripMenuItem
-            // 
-            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.关于ToolStripMenuItem.Text = "关于";
+            this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(61, 21);
+            this.帮助ToolStripMenuItem.Text = "帮助(&H)";
             // 
             // toolStrip1
             // 
@@ -245,6 +208,7 @@
             this.toolBtn_AddDatabase.Name = "toolBtn_AddDatabase";
             this.toolBtn_AddDatabase.Size = new System.Drawing.Size(23, 22);
             this.toolBtn_AddDatabase.Text = "添加数据库服务器";
+            this.toolBtn_AddDatabase.Click += new System.EventHandler(this.toolBtn_AddDatabase_Click);
             // 
             // toolBtn_DelDatabase
             // 
@@ -254,6 +218,7 @@
             this.toolBtn_DelDatabase.Name = "toolBtn_DelDatabase";
             this.toolBtn_DelDatabase.Size = new System.Drawing.Size(23, 22);
             this.toolBtn_DelDatabase.Text = "注销数据库服务器";
+            this.toolBtn_DelDatabase.Click += new System.EventHandler(this.toolBtn_DelDatabase_Click);
             // 
             // toolStripSeparator2
             // 
@@ -344,6 +309,57 @@
             this.mainPanel.Size = new System.Drawing.Size(800, 400);
             this.mainPanel.TabIndex = 2;
             // 
+            // toolStripMenu_Config_NameSpace
+            // 
+            this.toolStripMenu_Config_NameSpace.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenu_Config_NameSpace.Image")));
+            this.toolStripMenu_Config_NameSpace.Name = "toolStripMenu_Config_NameSpace";
+            this.toolStripMenu_Config_NameSpace.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenu_Config_NameSpace.Text = "命名空间设置";
+            this.toolStripMenu_Config_NameSpace.Click += new System.EventHandler(this.toolStripMenu_Config_NameSpace_Click);
+            // 
+            // toolStripMenu_Config_Class
+            // 
+            this.toolStripMenu_Config_Class.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenu_Config_Class.Image")));
+            this.toolStripMenu_Config_Class.Name = "toolStripMenu_Config_Class";
+            this.toolStripMenu_Config_Class.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenu_Config_Class.Text = "类库命名设置";
+            // 
+            // toolStripMenu_Config_Save
+            // 
+            this.toolStripMenu_Config_Save.Name = "toolStripMenu_Config_Save";
+            this.toolStripMenu_Config_Save.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenu_Config_Save.Text = "保存目录设置";
+            // 
+            // 数据库服务器配置ToolStripMenuItem
+            // 
+            this.数据库服务器配置ToolStripMenuItem.Name = "数据库服务器配置ToolStripMenuItem";
+            this.数据库服务器配置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.数据库服务器配置ToolStripMenuItem.Text = "数据库服务器设置";
+            // 
+            // toolStripMenu_Build_Text
+            // 
+            this.toolStripMenu_Build_Text.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenu_Build_Text.Image")));
+            this.toolStripMenu_Build_Text.Name = "toolStripMenu_Build_Text";
+            this.toolStripMenu_Build_Text.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.toolStripMenu_Build_Text.Size = new System.Drawing.Size(235, 22);
+            this.toolStripMenu_Build_Text.Text = "生成选中表至文本(&T)";
+            // 
+            // toolStripMenu_Build_Folder
+            // 
+            this.toolStripMenu_Build_Folder.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenu_Build_Folder.Image")));
+            this.toolStripMenu_Build_Folder.Name = "toolStripMenu_Build_Folder";
+            this.toolStripMenu_Build_Folder.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.toolStripMenu_Build_Folder.Size = new System.Drawing.Size(235, 22);
+            this.toolStripMenu_Build_Folder.Text = "生成选中表至目录(&D)";
+            // 
+            // toolStripMenu_Help_About
+            // 
+            this.toolStripMenu_Help_About.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenu_Help_About.Image")));
+            this.toolStripMenu_Help_About.Name = "toolStripMenu_Help_About";
+            this.toolStripMenu_Help_About.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenu_Help_About.Text = "关于生成器";
+            this.toolStripMenu_Help_About.Click += new System.EventHandler(this.toolStripMenu_Help_About_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -352,11 +368,14 @@
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "代码生成器";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Main_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -372,20 +391,13 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 服务器ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 命名空间设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 类库名称设置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 保存目录设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 生成ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 生成至文本ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 生成至目录ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 视图ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 添加数据库服务器ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 注销数据库服务器ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenu_Server_Add;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenu_Server_Delete;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenu_Server_Exit;
         private System.Windows.Forms.ToolStripButton toolBtn_Home;
         private System.Windows.Forms.ToolStripButton toolBtn_Server;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -402,6 +414,13 @@
         private System.Windows.Forms.ToolStripButton toolBtn_About;
         private System.Windows.Forms.ToolStripButton toolBtn_Exit;
         private WeifenLuo.WinFormsUI.Docking.DockPanel mainPanel;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenu_Config_NameSpace;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenu_Config_Class;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenu_Config_Save;
+        private System.Windows.Forms.ToolStripMenuItem 数据库服务器配置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenu_Build_Text;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenu_Build_Folder;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenu_Help_About;
     }
 }
 
