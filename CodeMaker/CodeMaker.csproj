@@ -203,6 +203,10 @@
       <Project>{E8F755B9-A0FD-4C28-82C3-2C785C2DD381}</Project>
       <Name>CodeMaker.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CodeMaker.Data.SqlServer\CodeMaker.Data.SqlServer.csproj">
+      <Project>{90956b9d-bd5e-4ed4-9726-c5c019be7e35}</Project>
+      <Name>CodeMaker.Data.SqlServer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CodeMaker.Model\CodeMaker.Model.csproj">
       <Project>{C0FEDBBF-496D-4D36-93F8-FE2CE30C4B68}</Project>
       <Name>CodeMaker.Model</Name>

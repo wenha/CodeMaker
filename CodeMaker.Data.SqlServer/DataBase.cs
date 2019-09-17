@@ -136,56 +136,25 @@ namespace CodeMaker.Data.SqlServer
             using (SqlConnection conn = new SqlConnection(Config.GetConnectionString(serverID, dbName)))
             {
                 conn.Open();
-                string sql = server.Type == DatabaseType.SqlServer2000 ?
-                    string.Format(@"SELECT name=a.name,isidentity=case when COLUMNPROPERTY( a.id,a.name,'IsIdentity')=1 then 1 else 0 
-                        end,isprimarykey=case when exists(SELECT 1 FROM sysobjects where xtype='PK' and parent_obj=a.id and name 
-                        in (SELECT name FROM sysindexes WHERE indid in(SELECT indid FROM sysindexkeys WHERE id = a.id AND colid=a.colid))) 
-                        then 1 else 0 end,type=b.name,bbyte=a.length,length=COLUMNPROPERTY(a.id,a.name,'PRECISION'),
-                        dec=isnull(COLUMNPROPERTY(a.id,a.name,'Scale'),0),isnull=case when a.isnullable=1 then 1 else 0 end,
-                        isdefault=isnull(e.text,''),note=isnull(g.[value],'')FROM syscolumns a left join systypes b on a.xusertype=b.xusertype 
-                        inner join sysobjects d on a.id=d.id and d.xtype='U' and d.name<>'dtproperties' left join syscomments e on 
-                        a.cdefault=e.id left join sysproperties g on a.id=g.id and a.colid=g.smallid left join sysproperties f on 
-                        d.id=f.id and f.smallid=0 where d.name='{0}' order by a.id,a.colorder", tableName) :
-                        string.Format(@"select a.name as f_name,b.name as t_name,[length],a.isnullable as is_null from 
+                string sql = string.Format(@"select a.name as f_name,b.name as t_name,[length],a.isnullable as is_null from 
                         sys.syscolumns a inner join sys.types b on b.user_type_id=a.xtype where object_id('{0}')=id order by a.colid", tableName);
                 using (SqlCommand cmd = new SqlCommand(sql, conn))
                 {
                     SqlDataReader dr = cmd.ExecuteReader();
-                    if (server.Type != DatabaseType.SqlServer2000)
+                    while (dr.Read())
                     {
-                        while (dr.Read())
+                        fieldsList.Add(new Fields()
                         {
-                            fieldsList.Add(new Fields()
-                            {
-                                Name = dr.GetString(0),
-                                Type = dr.GetString(1),
-                                Length = GetFieldLength(dr.GetString(1), dr.GetInt16(2)),
-                                IsNull = 1 == dr.GetInt32(3),
-                                IsPrimaryKey = IsPrimaryKey(serverID, dbName, tableName, dr.GetString(0)),
-                                IsIdentity = IsIdentity(serverID, dbName, tableName, dr.GetString(0)),
-                                DotNetType = GetFieldType(dr.GetString(1), 1 == dr.GetInt32(3)),
-                                DotNetSqlType = GetFieldSqlType(dr.GetString(1)),
-                                Note = GetFieldNote(serverID, dbName, tableName, dr.GetString(0))
-                            });
-                        }
-                    }
-                    else
-                    {
-                        while (dr.Read())
-                        {
-                            fieldsList.Add(new Fields()
-                            {
-                                Name = dr["name"].ToString(),
-                                Type = dr["type"].ToString(),
-                                Length = GetFieldLength(dr["type"].ToString(), Convert.ToInt32(dr["length"].ToString())),
-                                IsNull = "1" == dr["isnull"].ToString(),
-                                IsPrimaryKey = "1" == dr["isprimarykey"].ToString(),
-                                IsIdentity = "1" == dr["isidentity"].ToString(),
-                                DotNetType = GetFieldType(dr["type"].ToString(), "1" == dr["isnull"].ToString()),
-                                DotNetSqlType = GetFieldSqlType(dr["type"].ToString()),
-                                Note = dr["note"].ToString()
-                            });
-                        }
+                            Name = dr.GetString(0),
+                            Type = dr.GetString(1),
+                            Length = GetFieldLength(dr.GetString(1), dr.GetInt16(2)),
+                            IsNull = 1 == dr.GetInt32(3),
+                            IsPrimaryKey = IsPrimaryKey(serverID, dbName, tableName, dr.GetString(0)),
+                            IsIdentity = IsIdentity(serverID, dbName, tableName, dr.GetString(0)),
+                            DotNetType = GetFieldType(dr.GetString(1), 1 == dr.GetInt32(3)),
+                            DotNetSqlType = GetFieldSqlType(dr.GetString(1)),
+                            Note = GetFieldNote(serverID, dbName, tableName, dr.GetString(0))
+                        });
                     }
                     dr.Close();
                     dr.Dispose();

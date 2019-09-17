@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using CodeMaker.Model;
 using CodeMaker.Model.Enum;
 
 namespace CodeMaker.Common
@@ -46,9 +47,9 @@ namespace CodeMaker.Common
         /// 得到所有类命名空间
         /// </summary>
         /// <returns></returns>
-        public List<Model.ConfigServers> GetAll()
+        public List<ConfigServers> GetAll()
         {
-            List<Model.ConfigServers> list = new List<Model.ConfigServers>();
+            List<ConfigServers> list = new List<ConfigServers>();
             try
             {
                 XElement xelem = XElement.Load(XmlFile);
@@ -66,7 +67,7 @@ namespace CodeMaker.Common
                                };
                 foreach (var q in queryXML)
                 {
-                    list.Add(new Model.ConfigServers()
+                    list.Add(new ConfigServers()
                     {
                         Name = q.name,
                         Database = q.database,

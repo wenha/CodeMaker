@@ -231,7 +231,7 @@ namespace CodeMaker
                     {
                         Name = "视图",
                         Text = "视图",
-                        Tag = new Model.TreeNodeTag() { Type = TreeNodeType.ViewNode, Tag = nodeTag.Tag.ToString() },
+                        Tag = new TreeNodeTag() { Type = TreeNodeType.ViewNode, Tag = nodeTag.Tag.ToString() },
                         ImageIndex = 4,
                         SelectedImageIndex = 4
                     };
@@ -246,7 +246,7 @@ namespace CodeMaker
                         tblNode1.Text = table.Name;
                         tblNode1.ImageIndex = 2;
                         tblNode1.SelectedImageIndex = 2;
-                        tblNode1.Tag = new Model.TreeNodeTag() { Type = TreeNodeType.Table, Tag = table.Name };
+                        tblNode1.Tag = new TreeNodeTag() { Type = TreeNodeType.Table, Tag = table.Name };
                         selNode.Nodes.Add(tblNode1);
                     }
                     break;
@@ -259,13 +259,13 @@ namespace CodeMaker
                         viewNode1.Text = view.Name;
                         viewNode1.ImageIndex = 2;
                         viewNode1.SelectedImageIndex = 2;
-                        viewNode1.Tag = new Model.TreeNodeTag() { Type = TreeNodeType.View, Tag = view.Name };
+                        viewNode1.Tag = new TreeNodeTag() { Type = TreeNodeType.View, Tag = view.Name };
                         selNode.Nodes.Add(viewNode1);
                     }
                     break;
                 case TreeNodeType.View:
                 case TreeNodeType.Table: //表加载字段
-                    var fields = dataBase.GetFields(server.ID, ((Model.TreeNodeTag)selNode.Parent.Tag).Tag.ToString(), ((Model.TreeNodeTag)selNode.Tag).Tag.ToString());
+                    var fields = dataBase.GetFields(server.ID, ((TreeNodeTag)selNode.Parent.Tag).Tag.ToString(), ((TreeNodeTag)selNode.Tag).Tag.ToString());
                     foreach (var field in fields)
                     {
                         TreeNode fldNode = new TreeNode();
@@ -273,7 +273,7 @@ namespace CodeMaker
                         fldNode.Text = string.Format("{0}({1}{2},{3})", field.Name, field.Type, field.Length != -1 ? "(" + field.Length.ToString() + ")" : "", field.IsNull ? "null" : "not null");
                         fldNode.ImageIndex = field.IsPrimaryKey ? 5 : 3;
                         fldNode.SelectedImageIndex = field.IsPrimaryKey ? 5 : 3;
-                        fldNode.Tag = new Model.TreeNodeTag() { Type = TreeNodeType.Field, Tag = field };
+                        fldNode.Tag = new TreeNodeTag() { Type = TreeNodeType.Field, Tag = field };
                         selNode.Nodes.Add(fldNode);
                     }
                     break;
@@ -380,10 +380,10 @@ namespace CodeMaker
 
             foreach (TreeNode n in nodes)
             {
-                var selNodeTagType = ((TreeNodeTag)node.Tag).Type;
-                if (node.Checked && (selNodeTagType == TreeNodeType.Table || selNodeTagType == TreeNodeType.View))
+                var selNodeTagType = ((TreeNodeTag)n.Tag).Type;
+                if (n.Checked && (selNodeTagType == TreeNodeType.Table || selNodeTagType == TreeNodeType.View))
                 {
-                    list.Add(node);
+                    list.Add(n);
                 }
                 AddSelectedNodes(n, list);
             }

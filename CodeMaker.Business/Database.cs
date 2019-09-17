@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CodeMaker.IData;
+using CodeMaker.Model;
 
 namespace CodeMaker.Business
 {
@@ -50,7 +51,7 @@ namespace CodeMaker.Business
         /// <param name="serverID"></param>
         /// <param name="dbName"></param>
         /// <returns></returns>
-        public List<Model.Tables> GetTables(string serverID, string dbName)
+        public List<Tables> GetTables(string serverID, string dbName)
         {
             return DatabaseInstance.GetTables(serverID, dbName);
         }
@@ -61,7 +62,7 @@ namespace CodeMaker.Business
         /// <param name="serverID"></param>
         /// <param name="dbName"></param>
         /// <returns></returns>
-        public List<Model.Views> GetViews(string serverID, string dbName)
+        public List<Views> GetViews(string serverID, string dbName)
         {
             return DatabaseInstance.GetViews(serverID, dbName);
         }
@@ -73,7 +74,7 @@ namespace CodeMaker.Business
         /// <param name="dbName"></param>
         /// <param name="tableName"></param>
         /// <returns></returns>
-        public List<Model.Fields> GetFields(string serverID, string dbName, string tableName)
+        public List<Fields> GetFields(string serverID, string dbName, string tableName)
         {
             return DatabaseInstance.GetFields(serverID, dbName, tableName);
         }
