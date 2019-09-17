@@ -17,6 +17,7 @@ namespace CodeMaker
 {
     public partial class Form_DataBase : DockContent
     {
+
         private delegate void AddTreeNode(bool refresh);
 
         public Form_DataBase()
@@ -147,6 +148,11 @@ namespace CodeMaker
             Main.Instance.ShowServerList();
         }
 
+        /// <summary>
+        /// 双击表节点展开下一级节点
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void serverTreeView_DoubleClick(object sender, EventArgs e)
         {
             AddTreeNode addNode = new AddTreeNode(AddNodes);
@@ -374,6 +380,11 @@ namespace CodeMaker
             return list;
         }
 
+        /// <summary>
+        /// 递归寻找被选中的表或视图
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="list"></param>
         private void AddSelectedNodes(TreeNode node, List<TreeNode> list)
         {
             TreeNodeCollection nodes = node.Nodes;

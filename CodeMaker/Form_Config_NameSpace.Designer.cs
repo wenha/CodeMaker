@@ -122,19 +122,24 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
+            this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(14, 92);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(480, 209);
             this.listView1.TabIndex = 8;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "一级命名空间";
+            this.columnHeader1.Width = 200;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "二级命名空间";
+            this.columnHeader2.Width = 314;
             // 
             // Form_Config_NameSpace
             // 

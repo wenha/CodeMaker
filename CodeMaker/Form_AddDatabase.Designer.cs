@@ -49,12 +49,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(436, 354);
+            this.panel1.Size = new System.Drawing.Size(323, 287);
             this.panel1.TabIndex = 0;
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(104, 236);
+            this.btnNext.Location = new System.Drawing.Point(111, 223);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(75, 23);
             this.btnNext.TabIndex = 2;
@@ -98,6 +98,7 @@
             // rBtn_SqlServer
             // 
             this.rBtn_SqlServer.AutoSize = true;
+            this.rBtn_SqlServer.Checked = true;
             this.rBtn_SqlServer.Location = new System.Drawing.Point(123, 68);
             this.rBtn_SqlServer.Name = "rBtn_SqlServer";
             this.rBtn_SqlServer.Size = new System.Drawing.Size(83, 16);
@@ -120,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 354);
+            this.ClientSize = new System.Drawing.Size(323, 287);
             this.Controls.Add(this.panel1);
             this.Name = "Form_AddDatabase";
             this.ShowIcon = false;

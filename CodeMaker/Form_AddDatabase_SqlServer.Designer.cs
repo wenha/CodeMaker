@@ -105,8 +105,10 @@
             // 
             this.tBox_SqlServer_Pwd.Location = new System.Drawing.Point(132, 134);
             this.tBox_SqlServer_Pwd.Name = "tBox_SqlServer_Pwd";
+            this.tBox_SqlServer_Pwd.PasswordChar = '*';
             this.tBox_SqlServer_Pwd.Size = new System.Drawing.Size(159, 21);
             this.tBox_SqlServer_Pwd.TabIndex = 6;
+            this.tBox_SqlServer_Pwd.UseSystemPasswordChar = true;
             // 
             // tBox_SqlServer_UserName
             // 

@@ -44,10 +44,6 @@ namespace CodeMaker
                     ShowList();
                 }
             }
-            else
-            {
-                MessageBox.Show("添加失败!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private ConfigNameSpace GetModel()
@@ -121,6 +117,18 @@ namespace CodeMaker
             {
                 MessageBox.Show("删除失败!", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var items = listView1.SelectedItems;
+            if(items.Count == 0)
+            {
+                return;
+            }
+            var item = items[0];
+            nameSpace_tb_nameSpace1.Text = item.SubItems[0].Text;
+            nameSpace_tb_nameSpace2.Text = item.SubItems[1].Text;
         }
     }
 }

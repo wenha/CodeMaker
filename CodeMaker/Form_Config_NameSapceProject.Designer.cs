@@ -82,7 +82,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(361, 16);
+            this.label3.Location = new System.Drawing.Point(367, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 0;
@@ -90,7 +90,7 @@
             // 
             // nameSpaceClass_tb_IBll
             // 
-            this.nameSpaceClass_tb_IBll.Location = new System.Drawing.Point(434, 12);
+            this.nameSpaceClass_tb_IBll.Location = new System.Drawing.Point(440, 12);
             this.nameSpaceClass_tb_IBll.Name = "nameSpaceClass_tb_IBll";
             this.nameSpaceClass_tb_IBll.Size = new System.Drawing.Size(100, 21);
             this.nameSpaceClass_tb_IBll.TabIndex = 1;
@@ -158,27 +158,33 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(13, 94);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(711, 281);
             this.listView1.TabIndex = 3;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "数据层接口";
+            this.columnHeader1.Width = 184;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "数据层";
+            this.columnHeader2.Width = 156;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "业务层接口";
+            this.columnHeader3.Width = 195;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "业务层";
+            this.columnHeader4.Width = 155;
             // 
             // Form_Config_NameSapceProject
             // 

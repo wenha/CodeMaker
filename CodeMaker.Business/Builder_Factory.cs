@@ -11,7 +11,7 @@ namespace CodeMaker.Business
 {
     internal class Builder_Factory
     {
-        private IData.ICreateCode createInstance;
+        private ICreateCode createInstance;
         private IDataBase databaseInstance;
         private Import import;
 
